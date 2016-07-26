@@ -1,0 +1,11 @@
+{
+     "env": {
+        "port": {
+          "karmasoc-web-server": 8200,
+          "karmasoc-user": 44001,
+          "karmasoc-posts": 44002,
+          "karmasoc-email": 44003,
+          "karmasoc-mediaserve": 8300
+        }      
+    }    
+}

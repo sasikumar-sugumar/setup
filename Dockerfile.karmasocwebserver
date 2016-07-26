@@ -1,0 +1,20 @@
+# karmasoc-user
+FROM node:4
+
+# Create app directory
+RUN mkdir -p /usr/src/app/karmasoc-webserver
+RUN mkdir -p /usr/src/app/karmasoc-webserver/config
+
+COPY ./process.json /usr/src/app/karmasoc-webserver
+COPY ./config /usr/src/app/karmasoc-web-server/config
+COPY ./karmasoc-web-server /usr/src/app/karmasoc-web-server
+
+WORKDIR /usr/src/app/karmasoc-web-server
+
+RUN npm install pm2 -g
+RUN npm install --unsafe-perm=true
+RUN npm run build
+
+EXPOSE 44001
+
+CMD pm2 start --no-daemon  process.json --only karmasoc-web-server --env docker

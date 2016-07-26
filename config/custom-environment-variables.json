@@ -1,0 +1,22 @@
+{
+  "env": {
+    "log": {
+      "pathFileLogFile": "PATHFILELOGFILE",
+      "fileLogLevel": "FILELOGLEVEL",
+      "pathLogFileError": "PATHLOGFILEERROR"
+    }
+  },
+  "db": {
+    "karmasoc-user": {
+      "dbcon": "MONGODB_CON"
+    }
+  },
+  "rabbitmq": {
+    "host": "RABBIT_MQ_PORT_5672_TCP_ADDR",
+    "port": "RABBIT_MQ_PORT_5672_TCP_PORT",
+    "username": "RABBIT_MQ_USER",
+    "password": "RABBIT_MQ_PASSWORD"
+  },
+  "jwtSecret": "JWTSECRET",
+  "redisCloudUrl": "REDISCLOUDURL"
+}

@@ -1,0 +1,47 @@
+{
+    "env": {
+        "log":
+        {
+            "pathFileLogFile": "info",
+            "fileLogLevel": "error",
+            "pathLogFileError": "../logs"
+        },
+        "port": {
+            "karmasoc-web-server": 8200,
+            "karmasoc-user": 44001,
+            "karmasoc-posts": 44002,
+            "karmasoc-email": 44003,
+            "karmasoc-mediaserve": 8300
+        }
+    },
+    "slack":{
+        "slack": "https://hooks.slack.com/services/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",
+        "errorChannel": "https://hooks.slack.com/services/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",
+        "level": "error"
+    },
+    "auth": {
+        "google": {
+            "clientID": "",
+            "clientSecret": "",
+            "urlhost": "http://localhost:3000/api/auth/google/callback"
+        },
+        "facebook": {
+          "clientID": "",
+          "clientSecret": "",
+          "urlhost": "http://localhost:3000/api/auth/google/callback"
+        }
+    },
+    "db": {
+        "karmasoc-user": {
+            "dbcon": "mongodb://192.168.99.100:32768/userdb"
+        }
+    },
+    "rabbitmq": {
+        "host": "192.168.99.100",
+        "port": "5672",
+        "username": "guest",
+        "password": "guest"
+    },
+    "jwtSecret": "instantkarmasgonnagetyou",
+    "redisCloudUrl" :"redis://rediscloud:nBAju53AEHFMQ8r7@pub-redis-13992.us-east-1-4.3.ec2.garantiadata.com:13992"
+}

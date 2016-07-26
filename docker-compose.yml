@@ -1,0 +1,56 @@
+version: '2'
+services:
+#
+# Infrastructure
+#
+   rabbitmq:
+        image: "rabbitmq:3-management"
+        ports:
+        - "15672:15672"
+   db_mongodb:
+       image: "mongo"
+       hostname: "mongodb"
+       ports:
+         - "27017:27017"
+# web server
+   karmasoc-web-server:
+        image: "me/karmasoc-web-server"
+        build:
+            context: .
+            dockerfile: Dockerfile.karmasocwebserver
+        hostname: karmasoc-web-server
+        ports:
+          - "8200"
+        depends_on:
+          - db_mongodb
+          - rabbitmq
+        environment:
+            RABBIT_MQ_PORT_5672_TCP_ADDR: rabbitmq
+            RABBIT_MQ_PORT_5672_TCP_PORT: 5672
+            RABBIT_MQ_USER: guest
+            RABBIT_MQ_PASSWORD: guest
+            MONGODB_CON: "mongodb://192.168.99.100:32768/userdb"
+            PATHFILELOGFILE: "./"
+            FILELOGLEVEL: error
+            PATHLOGFILEERROR: "./"
+# user service
+   karmasoc-user:
+        image: "me/karmasoc-user"
+        build:
+            context: .
+            dockerfile: Dockerfile.karmasocuser
+        hostname: karmasoc-user
+        ports:
+          - "44001"
+        depends_on:
+          - db_mongodb
+          - rabbitmq
+        environment:
+            RABBIT_MQ_PORT_5672_TCP_ADDR: rabbitmq
+            RABBIT_MQ_PORT_5672_TCP_PORT: 5672
+            RABBIT_MQ_USER: guest
+            RABBIT_MQ_PASSWORD: guest
+            MONGODB_CON: "mongodb://192.168.99.100:32768/userdb"
+            PATHFILELOGFILE: "./"
+            FILELOGLEVEL: error
+            PATHLOGFILEERROR: "./"
