@@ -34,6 +34,11 @@
     "db": {
         "karmasoc-user": {
             "dbcon": "mongodb://192.168.99.100:32768/userdb"
+        },
+        "karmasoc-posts":{
+          "dbHost": "192.168.99.100",
+          "dbPort":"32768",
+          "dbName":"posts"
         }
     },
     "rabbitmq": {
