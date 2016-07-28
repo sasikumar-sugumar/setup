@@ -35,6 +35,24 @@
             "env_docker": {
                 "NODE_ENV": "docker"
             }
+        },
+        {
+            "name": "karmasoc-posts",
+            "script": "./index.js",
+            "min_uptime": "5s",
+            "max_memory_restart": "150M",
+            "watch": false,
+            "exec_interpreter": "node",
+            "exec_mode": "fork",
+            "autorestart": true,
+            "vizion": false,
+            "log_date_format": "MM-DD-YYYY HH:mm Z",
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "env_docker": {
+                "NODE_ENV": "docker"
+            }
         }
     ]
 }
