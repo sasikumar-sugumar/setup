@@ -54,3 +54,24 @@ services:
             PATHFILELOGFILE: "./"
             FILELOGLEVEL: error
             PATHLOGFILEERROR: "./"
+# posts service
+   karmasoc-posts:
+        image: "me/karmasoc-posts"
+        build:
+            context: .
+            dockerfile: Dockerfile.karmasocposts
+        hostname: karmasoc-posts
+        ports:
+          - "44001"
+        depends_on:
+          - db_mongodb
+          - rabbitmq
+        environment:
+            RABBIT_MQ_PORT_5672_TCP_ADDR: rabbitmq
+            RABBIT_MQ_PORT_5672_TCP_PORT: 5672
+            RABBIT_MQ_USER: guest
+            RABBIT_MQ_PASSWORD: guest
+            MONGODB_CON: "mongodb://192.168.99.100:32768/posts"
+            PATHFILELOGFILE: "./"
+            FILELOGLEVEL: error
+            PATHLOGFILEERROR: "./"
