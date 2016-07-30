@@ -6,6 +6,9 @@
             "fileLogLevel": "error",
             "pathLogFileError": "../logs"
         },
+        "host":{
+            "karmasoc-mediaserve": "http://localhost"
+        },
         "port": {
             "karmasoc-web-server": 8200,
             "karmasoc-user": 44001,
@@ -33,12 +36,16 @@
     },
     "db": {
         "karmasoc-user": {
-            "dbcon": "mongodb://192.168.99.100:32768/userdb"
+            "dbcon": "mongodb://192.168.99.100:32770/userdb"
         },
         "karmasoc-posts":{
           "dbHost": "192.168.99.100",
-          "dbPort":"32768",
+          "dbPort":"32770",
           "dbName":"posts"
+        },
+        "karamsoc-mediaserve":{
+            "dbHost": "192.168.99.100",
+            "dbPort":"32770"
         }
     },
     "rabbitmq": {
@@ -48,5 +55,7 @@
         "password": "guest"
     },
     "jwtSecret": "instantkarmasgonnagetyou",
+    "googlePlacesAPIKey" :"",
+    "OSMApiKey" :"",
     "redisCloudUrl" :"redis://rediscloud:nBAju53AEHFMQ8r7@pub-redis-13992.us-east-1-4.3.ec2.garantiadata.com:13992"
 }

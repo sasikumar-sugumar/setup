@@ -1,11 +1,11 @@
-# karmasoc-user
+# karmasoc-web-server
 FROM node:4
 
 # Create app directory
-RUN mkdir -p /usr/src/app/karmasoc-webserver
-RUN mkdir -p /usr/src/app/karmasoc-webserver/config
+RUN mkdir -p /usr/src/app/karmasoc-web-server
+RUN mkdir -p /usr/src/app/karmasoc-web-server/config
 
-COPY ./process.json /usr/src/app/karmasoc-webserver
+COPY ./process.json /usr/src/app/karmasoc-web-server
 COPY ./config /usr/src/app/karmasoc-web-server/config
 COPY ./karmasoc-web-server /usr/src/app/karmasoc-web-server
 

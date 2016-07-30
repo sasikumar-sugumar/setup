@@ -22,14 +22,29 @@ services:
         ports:
           - "8200"
         depends_on:
-          - db_mongodb
           - rabbitmq
         environment:
             RABBIT_MQ_PORT_5672_TCP_ADDR: rabbitmq
             RABBIT_MQ_PORT_5672_TCP_PORT: 5672
             RABBIT_MQ_USER: guest
             RABBIT_MQ_PASSWORD: guest
-            MONGODB_CON: "mongodb://192.168.99.100:32768/userdb"
+            PATHFILELOGFILE: "./"
+            FILELOGLEVEL: error
+            PATHLOGFILEERROR: "./"
+# media serve
+   karmasoc-mediaserve:
+        image: "me/karmasoc-mediaserve"
+        build:
+            context: .
+            dockerfile: Dockerfile.karmasocmediaserve
+        hostname: karmasoc-mediaserve
+        ports:
+          - "8300"
+        depends_on:
+          - db_mongodb
+        environment:
+            MONGODB_POST_HOST: 192.168.99.100
+            MONGODB_POST_PORT: 32768
             PATHFILELOGFILE: "./"
             FILELOGLEVEL: error
             PATHLOGFILEERROR: "./"
@@ -71,7 +86,8 @@ services:
             RABBIT_MQ_PORT_5672_TCP_PORT: 5672
             RABBIT_MQ_USER: guest
             RABBIT_MQ_PASSWORD: guest
-            MONGODB_CON: "mongodb://192.168.99.100:32768/posts"
+            MONGODB_POST_HOST: 192.168.99.100
+            MONGODB_POST_PORT: 32768
             PATHFILELOGFILE: "./"
             FILELOGLEVEL: error
             PATHLOGFILEERROR: "./"
